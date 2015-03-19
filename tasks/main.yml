@@ -1,0 +1,19 @@
+---
+- include:       dependencies.yml
+  when:          install_dependencies
+
+- name:          Check current installation
+  shell:         ruby-build --version
+  ignore_errors: true
+  register:      already_installed
+
+- name:          Create root directory
+  file:          path={{root}} state=directory
+  register:      root_created
+
+- name:          Install
+  git:           repo=https://github.com/sstephenson/ruby-build.git
+                 dest={{root}}
+                 update=yes
+                 version={{version}}
+  when:          already_installed|failed or root_created|changed
