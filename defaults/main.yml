@@ -1,0 +1,4 @@
+---
+install_dependencies: true
+root:                 /home/{{ansible_env.USER}}/.ruby_build
+version:              v20150319zf
