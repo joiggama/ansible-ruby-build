@@ -9,8 +9,7 @@ This ansible role aims to install [ruby-build](https://github.com/sstephenson/ru
 Requirements
 ------------
 
-All the dependencies are installed by default in the main tasks, if you don't want this role to install them, override the default variable `install_dependencies` to equal `false` when including this role.
-
+None.
 
 Role Variables
 --------------
@@ -31,16 +30,13 @@ Example Playbook
 ----------------
 
 ```yml
-- hosts: all
+- gather_facts: true
+  hosts:        all
   roles:
-     - role:                 joiggama.ruby-build
-       apt_cache_expiration: 3600
-       install_dependencies: true
-       root:                 ~/.ruby-build
-       version:              master
+                - joiggama.ruby-build
 ```
 
 License
 -------
 
-MIT
+[MIT](LICENSE.md)

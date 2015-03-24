@@ -1,8 +1,7 @@
 ---
 galaxy_info:
   author: Ignacio Galindo
-  description:
-  company: Crowd Interactive
+  description: This ansible role aims to install ruby-build on ubuntu systems.
   license: MIT
   min_ansible_version: 1.2
   platforms:
