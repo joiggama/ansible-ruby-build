@@ -2,7 +2,7 @@ ruby-build
 =========
 
 [![travis](https://img.shields.io/travis/joiggama/ansible-ruby-build/master.svg)](https://travis-ci.org/joiggama/ansible-ruby-build)
-[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joiggama/ansible-ruby-build)
+[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joiggama/ansible-ruby)
 
 This ansible role aims to install [ruby-build](https://github.com/sstephenson/ruby-build) on ubuntu systems.
 
