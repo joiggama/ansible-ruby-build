@@ -17,6 +17,7 @@ Role Variables
 
 | Name                 | Default                                |                                        |
 |:--------------------:|:--------------------------------------:|:--------------------------------------:|
+| apt_cache_expiration | 3600                                   | Update apt cache window in seconds     |
 | install_dependencies | true                                   | Whether or not to install dependencies |
 | root                 | /home/{{ansible_env.USER}}/.ruby-build | Install path for ruby-build            |
 | version              | master                                 | Any git reference: branch, tag, commit |
@@ -33,6 +34,7 @@ Example Playbook
 - hosts: all
   roles:
      - role:                 joiggama.ruby-build
+       apt_cache_expiration: 3600
        install_dependencies: true
        root:                 ~/.ruby-build
        version:              master
