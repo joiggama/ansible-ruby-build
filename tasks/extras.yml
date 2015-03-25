@@ -1,0 +1,4 @@
+---
+- name:  Reload rbenv
+  shell: eval "$(rbenv init -)"
+  when:  installed|changed and root | search("plugins")
