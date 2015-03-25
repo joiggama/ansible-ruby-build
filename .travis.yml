@@ -2,10 +2,10 @@
 language: python
 python: '2.7'
 before_install:
-- sudo apt-get update -qq
-- pip install --upgrade pip
+- sudo apt-get update -qq &> /dev/null
+- pip install --upgrade pip &> /dev/null
 install:
-- pip install ansible
+- pip install ansible &> /dev/null
 - mv test/ansible.cfg.example ansible.cfg
 script:
 - ansible-playbook -i test/inventory test/travis.yml --syntax-check

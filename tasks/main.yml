@@ -19,11 +19,11 @@
   when:          already_installed|failed or root_created|changed
   register:      installed
 
-- include:       extras.yml
-
 - name:          Add binary to $PATH
   sudo:          true
   file:          path=/usr/local/bin/ruby-build
                  src={{root}}/bin/ruby-build
                  state=link
   when:          installed|changed
+
+- include:       extras.yml
