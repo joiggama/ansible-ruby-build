@@ -2,4 +2,4 @@
 - gather_facts: true
   hosts:        all
   roles:
-                - ansible-ruby-build
+    - ansible-ruby-build

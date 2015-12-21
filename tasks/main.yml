@@ -1,29 +1,32 @@
 ---
 - include:       dependencies.yml
-  when:          install_dependencies
+  when:          ruby_build_install_dependencies
 
 - name:          Check current installation
   shell:         ruby-build --version
   ignore_errors: true
-  register:      already_installed
+  register:      ruby_build_already_installed
 
 - name:          Create root directory
-  file:          path={{root}} state=directory
-  register:      root_created
+  file:          path={{ ruby_build_root }} state=directory
+  register:      ruby_build_root_created
 
 - name:          Install
   git:           repo=https://github.com/sstephenson/ruby-build.git
-                 dest={{root}}
+                 dest={{ ruby_build_root }}
                  update=yes
-                 version={{version}}
-  when:          already_installed|failed or root_created|changed
-  register:      installed
+                 version={{ ruby_build_version }}
+  when:          ruby_build_already_installed|failed or
+                 ruby_build_root_created|changed or
+                 ruby_build_version == "master" or
+                 ruby_build_already_installed.stdout | replace("ruby-build", "") != ruby_build_version
+  register:      ruby_build_installed
 
 - name:          Add binary to $PATH
   sudo:          true
   file:          path=/usr/local/bin/ruby-build
-                 src={{root}}/bin/ruby-build
+                 src={{ ruby_build_root }}/bin/ruby-build
                  state=link
-  when:          installed|changed
+  when:          ruby_build_installed|changed
 
 - include:       extras.yml

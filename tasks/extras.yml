@@ -1,4 +1,11 @@
 ---
+- name: Check rbenv installation
+  command: rbenv --version
+  register: ruby_build_rbenv_present
+  ignore_errors: true
+
 - name:  Reload rbenv
   shell: eval "$(rbenv init -)"
-  when:  installed|changed and root | search("plugins")
+  when:  ruby_build_rbenv_present|success and
+         ruby_build_installed|changed and
+         ruby_build_root | search("plugins")

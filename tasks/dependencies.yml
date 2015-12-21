@@ -1,11 +1,11 @@
 ---
 - name:       Update apt cache
   sudo:       true
-  apt:        update_cache=yes cache_valid_time={{apt_cache_expiration}}
+  apt:        update_cache=yes cache_valid_time={{ ruby_build_apt_cache_expiration }}
 
 - name:       Install dependencies
   sudo:       true
-  apt:        pkg={{item}} state=present install_recommends=no
+  apt:        pkg={{ item }} state=present install_recommends=no
   with_items:
               - build-essential
               - git

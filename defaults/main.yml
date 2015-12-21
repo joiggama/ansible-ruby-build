@@ -1,5 +1,5 @@
 ---
-apt_cache_expiration: 3600
-install_dependencies: true
-root:                 /home/{{ansible_env.USER}}/.ruby_build
-version:              v20150319zf
+ruby_build_apt_cache_expiration: 3600
+ruby_build_install_dependencies: true
+ruby_build_root:                 /home/{{ ansible_env.USER }}/.ruby_build
+ruby_build_version:              master
