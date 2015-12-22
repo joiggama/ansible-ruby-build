@@ -14,12 +14,12 @@ None.
 Role Variables
 --------------
 
-| Name                            | Default                                  |                                        |
-|:-------------------------------:|:----------------------------------------:|:--------------------------------------:|
-| ruby_build_apt_cache_expiration | 3600                                     | Update apt cache window in seconds     |
-| ruby_build_install_dependencies | true                                     | Whether or not to install dependencies |
-| ruby_build_root                 | /home/{{ ansible_env.USER }}/.ruby-build | Install path for ruby-build            |
-| ruby_build_version              | master                                   | Any git reference: branch, tag, commit |
+| Name                            | Default                            |                                         |
+|:-------------------------------:|:----------------------------------:|:---------------------------------------:|
+| ruby_build_apt_cache_expiration | 3600                               | Update apt cache window in seconds      |
+| ruby_build_install_dependencies | true                               | Whether or not to install dependencies  |
+| ruby_build_root                 | {{ ansible_env.HOME }}/.ruby-build | Install path for ruby-build (via facts) |
+| ruby_build_version              | master                             | Any git reference: branch, tag, commit  |
 
 Dependencies
 ------------
@@ -29,11 +29,11 @@ None.
 Example Playbook
 ----------------
 
-```yml
+```yaml
 - gather_facts: true
   hosts:        all
   roles:
-                - joiggama.ruby-build
+    - joiggama.ruby-build
 ```
 
 License

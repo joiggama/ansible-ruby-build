@@ -28,5 +28,3 @@
                  src={{ ruby_build_root }}/bin/ruby-build
                  state=link
   when:          ruby_build_installed|changed
-
-- include:       extras.yml
